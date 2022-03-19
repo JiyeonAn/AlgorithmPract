@@ -1,5 +1,5 @@
 '''
-#1. String 과 List의 차이점
+#1. String 과 List[]의 차이점
 
 List는 문자열 변경 바로 가능
 ex List)
@@ -22,7 +22,7 @@ new_s = s[:2] + 'k' + s[3:]
 print(new_s)                  # 'Nake' 출력
 
 '''
-#2. List와 Tuple의 차이점
+#2. List와 Tuple()의 차이점
 
 문자 : 변경가능 객체
 List : 참조형 객체, 참조하는 List도 함께 데이터가 변경됨
@@ -73,6 +73,24 @@ chose_from_three = ('a', 'b', 'c')
 answer = []
 answer.append('A')        #가능
 chose_from_three.append('A')  #syntax 에러
+
+'''
+#3. 사전형 {}
+
+dict로 선언 가능
+tuple형 dict로 선언도 가능
+
+'''
+d = {'x': 100, 'y': 200}
+d['z'] = 300
+print(d)                # {'x': 100, 'y': 200, 'z': 300}
+
+dict(a=10, b=20)
+#or
+dict([('a', 10)    ,    ('b', 20)])   
+
+
+
 
 
 
