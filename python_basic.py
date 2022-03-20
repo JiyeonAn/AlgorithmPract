@@ -79,6 +79,7 @@ chose_from_three.append('A')  #syntax 에러
 
 dict로 선언 가능
 tuple형 dict로 선언도 가능
+변수별 값을 선언하고 싶을 경우엔 tuple보다 dict를 사용한다.
 
 '''
 d = {'x': 100, 'y': 200}
@@ -88,6 +89,14 @@ print(d)                # {'x': 100, 'y': 200, 'z': 300}
 dict(a=10, b=20)
 #or
 dict([('a', 10)    ,    ('b', 20)])   
+
+d.clear()  #d 사전형 클리어 
+d = {'apple' : 1000, 'banana' : 2000}
+
+#tuple형으로 선언하는 경우
+t=dict([(apple, 1000),(banana, 2000)])
+#list를 사용하는경우
+L =[[apple , 1000],[banana, 2000]]
 
 
 
