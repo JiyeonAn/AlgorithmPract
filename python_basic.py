@@ -98,6 +98,19 @@ t=dict([(apple, 1000),(banana, 2000)])
 #list를 사용하는경우
 L =[[apple , 1000],[banana, 2000]]
 
+'''
+#4. 집합형{} -set
+
+사전형의 simple버전 
+다른 그리드타입의 형변환을 도와줌
+리스트의 중복을 제거해준다
+'''
+
+A = ('apple' , 'banana', 'apple') #tuple형
+
+Kind = set(A)  #집합형으로 형변환 apple, banana만 출력
+Print(kind)
+
 
 
 
