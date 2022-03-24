@@ -124,6 +124,30 @@ If A = 1:
    Prunt(" suceess")
 
 
+'''
+논리연산자 / 아무것도 들어있지 않다는 값의 표시
+/ None
+'''
+
+is_ok = True   #논리연산자
+If  is_ok : 
+   Print("success")
+
+#값이 없는 경우에도 같음 0, 0.00, '' 인경우
+If is_ok :
+ Print("success")
+else 
+  Print("empty")
+
+#None이란??  하나의 object. 값이 아님
+
+If is_ok is None:
+  Print("success")
+
+'''
+While else feat. Break, continue
+'''
+
 
 
 
