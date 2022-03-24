@@ -112,6 +112,18 @@ Kind = set(A)  #집합형으로 형변환 apple, banana만 출력
 Print(kind)
 
 
+ '''  
+If문 indentation에러 주의
+'''
+
+A = 10
+B = 5
+If A = 1:
+  Print(" success")
+  If B > 10:        #indentation 해야함
+   Prunt(" suceess")
+
+
 
 
 
