@@ -148,7 +148,47 @@ If is_ok is None:
 While else feat. Break, continue
 '''
 
+#While문도 기존 문법과 같이 사용 가능
 
+i = 0
+
+while i < 5
+  print(i)
+ i += 1
+ 
+ #else문 사용 가능 : break문이 없을 경우 마지막에 한번더 else로직을 타게 한다.
+ 
+ i = 0
+ while i<5
+   print(i)
+   i += 1
+   else
+    print('success')
+    
+  '''
+  break : while에서 벗어난다.
+  continue : 다음 조건으로 while문을 탄다.
+  '''
+  
+  '''
+for else feat. Break, continue
+   - while문과 비슷함 + for에서 인수 지정 혹은 list, 사전형 선언 가능 
+'''
+  
+  i = [ 1,2,3,4]
+  n = 0
+  while n < len(i)
+    print(i[n])
+    n += 1
+    
+ #for문으로 전환시
+ 
+  for n in i
+      print(n)
+   
+   
+  
+  
 
 
 
