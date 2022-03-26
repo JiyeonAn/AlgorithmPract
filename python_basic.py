@@ -168,7 +168,15 @@ while i < 5
   '''
   break : while에서 벗어난다.
   continue : 다음 조건으로 while문을 탄다.
+  While과 잘쓰이는 input함수란 ? 루푸늘 도는동안 값 인풋 할수있는 펑션
   '''
+   While True
+     word = input('Enter:')  #Enter : input값 
+     If word = 'ok'
+     break
+     Print('next')
+
+
   
   '''
 for else feat. Break, continue
@@ -186,6 +194,25 @@ for else feat. Break, continue
   for n in i
       print(n)
    
+  #range 함수 : for문과 자주쓰임
+#리스트를 일일히 만들어서 for문을 돌리는건 귀찮은일
+   For i in range(2, 10)
+     Print(i)
+
+   For i in range(2,10,3)
+   Print(i)   # 2,5,8 출력됨
+
+#해당 숫자를 index로 쓰고 싶을때
+  For i in range(10)
+     Print(i , 'hello')
+
+#index를 안쓰고 싶을땐??
+  For _ in range(10)  #i를 언더바로 표시
+     Print('hello')
+
+  #enumerate 함수란?  
+
+
    
   
   
