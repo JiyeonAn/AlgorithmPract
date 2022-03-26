@@ -165,11 +165,15 @@ while i < 5
    else
     print('success')
     
+
   '''
   break : while에서 벗어난다.
   continue : 다음 조건으로 while문을 탄다.
   While과 잘쓰이는 input함수란 ? 루푸늘 도는동안 값 인풋 할수있는 펑션
   '''
+
+
+
    While True
      word = input('Enter:')  #Enter : input값 
      If word = 'ok'
@@ -210,7 +214,19 @@ for else feat. Break, continue
   For _ in range(10)  #i를 언더바로 표시
      Print('hello')
 
-  #enumerate 함수란?  
+  #enumerate 함수란?  Index를 일일히 표시해주지 않아도 되는것
+
+ For i, fruint in enumerate(['apple', ',banana,'])
+   Print(i, fruit)
+
+  #zip 함수란? 여러 list들을 같은idex 값을 한번에 출력하고싶을때
+
+days = [1,2,3]
+fruits =[ 'apple', 'orange', 'banana']
+drinks = ['cola', 'sidar' , 'water']
+
+For day, fruit, drink in zip(days,fruits,drinks)
+  Print(day, fruit, drink)
 
 
    
