@@ -228,6 +228,24 @@ drinks = ['cola', 'sidar' , 'water']
 For day, fruit, drink in zip(days,fruits,drinks)
   Print(day, fruit, drink)
 
+'''
+사전형의 for문
+  - 사전형을 기존의 for문으로 출력하면 키값만 나옴
+'''
+
+Xln ={x : 100, y : 200}
+
+For i in Xln
+  Print(i)       # x,y 이렇게 출력됨
+
+#.items 를 사용한다 >list형 안의 tuple형으로 정의됨
+
+For k, i in Xln.itm3s
+  Print( k, i)   # x, 100  y, 200 출력됨
+
+
+
+
 
    
   
