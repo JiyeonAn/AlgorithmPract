@@ -186,7 +186,7 @@ while i < 5
 for else feat. Break, continue
    - while문과 비슷함 + for에서 인수 지정 혹은 list, 사전형 선언 가능 
 '''
-  
+  '''
   i = [ 1,2,3,4]
   n = 0
   while n < len(i)
@@ -229,6 +229,7 @@ For day, fruit, drink in zip(days,fruits,drinks)
   Print(day, fruit, drink)
 
 '''
+
 사전형의 for문
   - 사전형을 기존의 for문으로 출력하면 키값만 나옴
 '''
