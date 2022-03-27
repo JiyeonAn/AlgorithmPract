@@ -245,6 +245,53 @@ For k, i in Xln.itm3s
   Print( k, i)   # x, 100  y, 200 출력됨
 
 
+'''
+함수 정의하기 : def 반환값 : return
+'''
+
+def say_something()
+   Return ('hi')
+
+Result = say_something()
+Print(Result)    # hi 출력
+
+def What_is_color(color)
+  If color = 'red'
+    Print("tomato")
+
+Result = What_is_color('red')
+Print(Result)    #tomato 출력
+
+#인수의 타입을 선언하는법
+Def add_num(a : int , b : int) -> int #int 값을 넣으면 결과값도 int로 출력하라는 뜻
+    return a+b
+ Result = add_num(10,20)
+ Print(Return)   #30 출력
+
+#but 파이썬은 문자열로 자동 변환가능
+
+''' 
+디폴트 인수 사용법: 리스트는 디폴트값이 될수 없다!!!
+'''
+ def num(x , l=[])
+     l.append(x)
+     Return l
+
+R = num(100)    #l =[100]
+R = num(100)    #l=[100,100]
+
+  Def num2(x , l= None)
+   If l is None
+      l = []
+      l.append(x)
+
+
+  
+
+
+
+
+
 
 
 
