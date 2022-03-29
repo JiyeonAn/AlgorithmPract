@@ -286,6 +286,43 @@ R = num(100)    #l=[100,100]
       l.append(x)
 
 
+'''
+ [목차]
+1. 인수의 튜플화(*args)
+2. 인수의 사전화(**kwargs)
+3. DocStrings란
+4. 함수 내 함수
+5. 클로저
+6. 데코레이터
+'''
+
+#1. 인수의 튜플화
+
+def say_something(*args)
+     return(*args)
+
+d={'hi', 'Mike'}
+
+result = say_something(*d)
+Print(result)         #{hi, Mike} 출력됨
+
+#2.키워드 인수의 사전화
+
+r = { 'x' : 'apple', 'y' : 'banana'}
+def fruit(**kwargs)
+    For k, v in **kwargs.items()
+      T = (k,v)
+    return T
+
+Print(fruit(**r))      # x , apple y,banana 출력
+
+
+#DocStrings 란?? Help랑 같은 기능으로 해당함수 템플린 출력
+
+def doc_info()
+ Print(doc_info().help)
+ Print(doc<info()._doc_) #같은 결과값 출력
+
   
 
 
