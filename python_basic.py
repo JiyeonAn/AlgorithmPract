@@ -355,7 +355,101 @@ def outer(a,b):
  
  print(cal1(10)
  print(cal1(20)
+ 
+ '''
+ 5. 데코레이터 @로 function 여러개 불러오기
+ '''
+ 
+ def print_info(func):
+       def wrapper(*args , **kwargs):
+        print('start')
+        result = func(*args, **kwargs)
+        print('end')
+        return result
+    return wrapper
        
+ def add_num(a,b)
+       return a+b
+ 
+ 
+ f = print_info(add_num)
+ print(f(1,2))                      # start / end / 3 출력됨.
+       
+ #데코레이터 사용 하는 법
+ 
+ @print_info
+ def add_num2(a,b)
+     return a+b
+       
+  r = add_num2(10,20)
+       print(r)                    # start / end / 3 출력됨.
+ 
+#여러 데코레이션 사용 가능 
+ 
+ def print_more(func):
+       def wrapper(*args, **kwargs):
+        print('func' , func._name_)
+        print('args' , args)
+        print('kwargs', kwwargs)
+        result = func(*args, **kwargs)
+        print('result', result)
+        return result
+       
+       rerturn wrapper
+       
+ #기존
+    r = print_info(print_more(add_num))
+    print(r(10,20))
+ 
+ #데코레이터 사용
+       @print_more
+       @print_info
+       def add_num3(a,b):
+         return a+ b;
+      r = add_num3(10,20)
+      print(r)               # func: wrapper, args: {10,20}, kwargs : {}, start end result : 30 , 30 출력
+  
+  
+       
+  '''
+  6. 람다 : sample function 만들 때 사용함. landa 변수 : 변수.sample function
+  기능 한가지만 사용하고 싶은데 def해주기엔 소스가 비효율적일때 사용한다.
+  '''
+       
+  l = ['Mon', 'Tue', 'wed', 'Thur']    # 대소문자 통일하고 싶을 때
+       
+   def change_words(words,func):
+        for word in words:
+             print(func(word))
+   
+    change_words(l,lamda word: word.capitalize())
+       
+   
+   '''
+   7. 제너레이터 : 반복문에서 한 요소를 끝내서 가공해주는 것
+   '''
+       
+ l = ['Good Morning', 'Good afternoon', 'Good night']
+  
+       for L in l:
+         print(L)
+       
+       
+  #제러네리터 쓰는법 : yield 사용
+   
+   def greeting():
+       yield 'Good Morning'
+       yield 'Good Afternoon'
+       yield 'Good night'
+   
+   for g in greenting():
+       print(g) 
+    
+    g = greeting()
+    print(next(g))   # Good Morning
+    print(next(g))   # Good Afternoon
+   
+  #loop문과 다르게 한꺼번에 출력하지 않고도 요소 하나씩 원할때 출력 가능하다.
        
 
 
