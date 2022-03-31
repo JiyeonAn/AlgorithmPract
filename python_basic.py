@@ -76,12 +76,11 @@ chose_from_three.append('A')  #syntax 에러
 
 '''
 #3. 사전형 {}
-
 dict로 선언 가능
 tuple형 dict로 선언도 가능
 변수별 값을 선언하고 싶을 경우엔 tuple보다 dict를 사용한다.
-
 '''
+
 d = {'x': 100, 'y': 200}
 d['z'] = 300
 print(d)                # {'x': 100, 'y': 200, 'z': 300}
@@ -90,7 +89,7 @@ dict(a=10, b=20)
 #or
 dict([('a', 10)    ,    ('b', 20)])   
 
-d.clear()  #d 사전형 클리어 
+d.clear()              #d 사전형 클리어 
 d = {'apple' : 1000, 'banana' : 2000}
 
 #tuple형으로 선언하는 경우
@@ -100,7 +99,6 @@ L =[[apple , 1000],[banana, 2000]]
 
 '''
 #4. 집합형{} -set
-
 사전형의 simple버전 
 다른 그리드타입의 형변환을 도와줌
 리스트의 중복을 제거해준다
@@ -108,7 +106,7 @@ L =[[apple , 1000],[banana, 2000]]
 
 A = ('apple' , 'banana', 'apple') #tuple형
 
-Kind = set(A)  #집합형으로 형변환 apple, banana만 출력
+Kind = set(A)            #집합형으로 형변환 apple, banana만 출력
 Print(kind)
 
 
@@ -120,7 +118,7 @@ A = 10
 B = 5
 If A = 1:
   Print(" success")
-  If B > 10:        #indentation 해야함
+  If B > 10:           #indentation 해야함
    Prunt(" suceess")
 
 
@@ -172,21 +170,18 @@ while i < 5
   While과 잘쓰이는 input함수란 ? 루푸늘 도는동안 값 인풋 할수있는 펑션
   '''
 
-
-
    While True
      word = input('Enter:')  #Enter : input값 
      If word = 'ok'
      break
      Print('next')
-
-
   
   '''
 for else feat. Break, continue
    - while문과 비슷함 + for에서 인수 지정 혹은 list, 사전형 선언 가능 
-'''
   '''
+  
+  
   i = [ 1,2,3,4]
   n = 0
   while n < len(i)
@@ -229,7 +224,6 @@ For day, fruit, drink in zip(days,fruits,drinks)
   Print(day, fruit, drink)
 
 '''
-
 사전형의 for문
   - 사전형을 기존의 for문으로 출력하면 키값만 나옴
 '''
@@ -317,13 +311,52 @@ def fruit(**kwargs)
 Print(fruit(**r))      # x , apple y,banana 출력
 
 
-#DocStrings 란?? Help랑 같은 기능으로 해당함수 템플린 출력
+#3. DocStrings 란?? Help랑 같은 기능으로 해당함수 템플린 출력
 
 def doc_info()
  Print(doc_info().help)
  Print(doc<info()._doc_) #같은 결과값 출력
+ 
+ #4. 함수 내 함수
 
+ def outer(a,b) :
+   def plus(c,d):
+      return c + d
+   r1 = plus(a,b)
+   r2 = plus(b,a)
+   print(r1 + r2)
+   
+outer(1,2)         # r1 = 3, r2 = 3 결과값 6 출력됨.
+
+'''
+5. 클로저 : outer먼저 return하고 inner을 불러오는 방식
+ inner 함수를 나중에 사용하고 싶을 때 쓰는 로직
+'''
+
+def outer(a,b):
+  def inner():
+      return a+b
+   
+  return inner
+ 
+ r = outer(1,2)   # inner라는 함수를 먼저 return함
+ f = r()          # 비로서 inner함수가 실행됨
+ print(f)         # 3 출력
+ 
+
+ def circle_area_func(pi):
+   def circle_area(radias):
+      return pi * radias * 100
+    
+    return circle_area
   
+ cal1 = circle_area_func(3.14)
+ cal2 = circle_area_func(5160.2)
+ 
+ print(cal1(10)
+ print(cal1(20)
+       
+       
 
 
 
