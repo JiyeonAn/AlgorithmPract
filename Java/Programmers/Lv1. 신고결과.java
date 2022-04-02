@@ -49,3 +49,48 @@ id는 알파벳 소문자로만 이루어져 있습니다.
 return 하는 배열은 id_list에 담긴 id 순서대로 각 유저가 받은 결과 메일 수를 담으면 됩니다.
 
 */
+
+//문제 해결
+import java.util.*;
+
+class Solution {
+    public int[] solution(String[] id_list, String[] report, int k) {
+        //id_list : 게시판을 사용하는 유저들
+        //report : 문자열 하나: '이용자id, 신고한id'
+        //k 신고횟수 제한 
+        //answer은 각 유저가 몇번 신고당했는지 int 출력
+        /*
+            1. List에 User Id 한개씩 넣기
+            2. User Id(String), 신고List(<List>) 로 담기
+        */
+        
+        
+        int[] answer = new int[id_list.length];
+        Map<String,Integer> idIndex = new HashMap<>();
+        Map<String,List<String>> reportMap = new HashMap<>();
+        
+        for(int i = 0; i<id_list.length; i++){
+            idIndex.put(id_list[i], i);
+            reportMap.put(id_list[i], new ArrayList<>());
+        }
+        
+        for(String reported : report){
+            String[] temp = reported.split(" "); // temp에 신고 list 받아온다.
+            if(!reportMap.get(temp[1]).contains(temp[0])){
+                reportMap.get(temp[1]).add(temp[0]);
+            }
+            //reportMap에는 key 신고한User_id에 여러 신고자 포함되어있음.
+            
+        }
+        
+        for(String id : reportMap.keySet()) {
+            if(k <= reportMap.get(id).size()){
+                for(String reporter : reportMap.get(id)){
+                    answer[idIndex.get(reporter)]++;
+                }
+            }
+        }
+        
+        return answer;
+    }
+}
