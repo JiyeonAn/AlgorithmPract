@@ -451,21 +451,169 @@ def outer(a,b):
    
   #loop문과 다르게 한꺼번에 출력하지 않고도 요소 하나씩 원할때 출력 가능하다.
        
+ '''
+ 1. 이름 공간과 스코프
+ 2. 예외처리
+ 3. 독자 예외의 작성
+ 4. import 시, _name_과 _main_ 쓰는 이유
+ 5. 클래스의 정의
+ 6. 클래스의 초기화와 
+ 7. 생성사와 소멸자 
+ 8. 클래스의 계승
+ 9. 매소드의 오버라이드
+ 10. Property를 사용한 
+       
+ '''
+       
+ #1. 이름 공간과 스코프 : global 변수 와 local 변수의 구분
+ 
+ #case1. 
+ animal = 'cat'
+ def f():
+       print(animal)
+       animal = 'dog' 
+       print('after', animal)     # error : local variable 'animal' referenced before assignment 
+ f()
+       
+ #case2. 글로벌 변수를 불러오기전에 로컬 변수를 선언해주면 에러 나지 않음.
+ def f2():
+       animal = 'dog'
+       print('after', animal)
+f2()
+print('global:', animal)       # after dog global cat 출력 가능
 
-
-
-
-
-
-
-
+       
+#case3. globals(), locals() 사용 가능
+def f3():
+       animal = 'dog'
+       print('local' , locals())
+ f3()
+ print('global',globals())     # local dog , global cat 출력 가능
+       
+ #※global 응용법
+ """"
+ Test Test
+"""""
+def f4():
+       print('local', locals())
+f4()       
+print('global' ,globals())     #local : {}, global: {'__name__' : '__main__' Test test} 출력
+print(__name__)                # global: __main__ 출력       
+       
+#2. 예외 처리 
+l = [1,2,3]
+i = 5
+del l
+try:
+       l[i]
+except IndexError as ex:
+       print("Don't Worry" . format(ex))
+except NameError as ex:
+       print(ex)
+except Exception as ex:
+       print(ex)
+else:
+       print('done')         # 정상일때 
+finally:
+       print('clean up')     # 꼭 실행을 하고 싶은 행이 있을 때 finally를 사용한다. 
+print("last")
+ 
+ #3. 독자 예외의 작성
+  raise IndexError('test Error')
+  #자기만의 예외 클래스를 사용할 수 있다.
+class UpeerCaseError(Exception):
+       pass
+       
+def check(0):
+          words : ['Apple', 'orage', 'banana']
+       for word in words
+         if word.isupper():
+           raise.UppercaseError(word)
+ try:
+       check()
+ except UppercaseError as exc:
+       print('This is my fault. Go next')
+       
+       
+#4. __name__과 __main__ 사용하는 법
+   #iport 할때 import한 main function과 해당 파일의 function을 혼동하지 않기위해 씀
+ import config
+       print('__main__', __main__)     #config의 main을 가져옴.
+       
+  def main():
+       print('This is main page')
+       
+   if __name__ == '__main__' :
+       main()
+       
+       
+  #5. 클래스의 정의 
    
+  class Person(object):
+       def say_someting(self):
+         print('hello')
   
+  person = Person()
+  person.say_something()
   
+  #python3에서는 object 사용하지 않아도 됨
+   class Person2():
+       def say_something(self):
+       print('hello')
+       
+  #6. 클래스의 초기화와 클래스의 변수
+       
+  class Person3(object):
+       def __init__(self,name):
+        self.name = name
+        print(self.name)
+              
+        def say_something(self):
+              print('hello, I an {}'.format('self.name))
+              self.run(10)
+       def run(self, num):
+              print('run' * num)
+         
+person = Person3('Mike') 
+person.say_something()             # hello, I am Mike. / run 10번 출력
+                                            
+                                            
+  #7. 생성자와 소멸자  __init__과 __del__
+class Person4(object):
+     def __init__(self, name):
+         self.name = name
+     def say_something(self):
+         print('hello, I am {}'.format(self.name))
+         self.run(10)
+     def run(self, num):
+         print('run' * num)
+     def __del__(self):
+         print('good bye')
 
+person = Person4('Mike')
+person.say_something()              # hello, I am Mike/ run * 10 번 출력 / good bye
+del person 
+print("######")                     # hello, I am mike / run 10번 / good bye(소멸자) / ####출력
+                                            
+#8. 클래스의 계승
 
+class Car(object):
+      def run(self):
+          print("run")
+                                            
+class ToyotaCar(Car):
+      pass
 
-
-
-
-
+class TeslCar(Car):
+      def auto_run(self):
+          print('auto run')
+                                            
+car = Car()
+car.run()
+toyota_car = ToyotaCar()
+toyota_car.run()
+tesla_car = TeslaCar()
+ tesla_car.run()
+ tesla_car.auto_run()
+                                            
+#9. 메소드 오버라이드와 super로 기반 클래스의 메소드
