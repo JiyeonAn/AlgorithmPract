@@ -617,3 +617,70 @@ tesla_car = TeslaCar()
  tesla_car.auto_run()
                                             
 #9. 메소드 오버라이드와 super로 기반 클래스의 메소드
+class Car(object):
+      def __init_-(self, model = None)
+             self.model = model  
+      def run(self):
+          print("run")
+                                            
+class ToyotaCar(Car):
+     def run(self):
+     print("fast")     #오버라이드 하기 
+
+class TeslCar(Car):
+      def __init__(self, model = 'Model S', enable_auto_run=False):
+       super().__init__(model)
+       self.enable_auto_run = enable_auto_run            # 기반클래스를 오버라이드하고싶을때 super사용한 후 덮어씀. 그 이후엔 TeslaCar만의 펑션 불러올수도 있다.
+      def run(self):
+         print("super fast")            
+      def auto_run(self):
+          print('auto run')
+                                            
+car = Car()
+car.run()
+toyota_car = ToyotaCar("Lexus")
+print(toyota_car.model)    
+toyota_car.run()
+tesla_car = TeslaCar("Model S")
+print(tesla_car.model)
+ tesla_car.run()
+ tesla_car.auto_run()
+                                             
+#10. Property를 이용한 속성의 설정  : 값을 읽어올수는 있지만 덮어스기는 못한다 의 뜻
+                                       
+class TeslCar(Car):
+      def __init__(self, model = 'Model S', enable_auto_run=False . passwd = '123'):
+       super().__init__(model)
+       self._enable_auto_run = enable_auto_run    
+       self.passwd = passwd                                     
+      
+      @property
+      def enable_auto_run(self):
+         return self._enable_auto_run  
+      @enable_auto_run.setter
+      def enable_auto_run(self, is_enable):
+           if self.passwd == '456':                                 
+            self._enable_auto_run = is_enable
+           else:
+             raise ValueError                               
+                                            
+      def run(self):
+         print("super fast")            
+      def auto_run(self):
+          print('auto run')
+                                            
+tesla_car = TeslaCar('Model S' passwd = '111')
+print(tesla_car.enable_auto_run)     #Fale 출력됨 값을 바꿀 수 없음. 바꾸는 방법? setter   
+tesla_car.enable_auto_run = True
+print(tesla_car.enable_auto_run)     #True 출력됨.  
+                                            
+#self.__ : class내에서만 불러올 수 있으며 object를 생성한 후 print나 작업을 하려고 하면 에러가 발생한다.                                             
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
